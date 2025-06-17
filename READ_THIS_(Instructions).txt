@@ -1,0 +1,16 @@
+API Key:
+1.Go to https://aistudio.google.com/
+Click Get API key
+Click Create API Key
+Copy The shown key (Do not share it with anyone else)
+paste it in ".env" file after the "=" sign
+(If you can't find .env file press Ctrl+H it will show the hidden file)
+
+Installation:
+I have put the requirements.txt file in the "src" folder
+Install using "pip install -r requirements.txt"
+
+Running:
+run the app.py file- use "python3 app.py" or "python app.py" in terminal/cmd
+It must open in the browser(Chome, Brave, FireFox or other available in your system)
+Ctrl+click on the local link shown (Example: http://127.0.0.1:5000)

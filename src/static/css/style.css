@@ -1,0 +1,101 @@
+/* Basic styles for the Mood App */
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background-color: #000;
+    margin: 0;
+    padding: 20px;
+    color: #fff;
+}
+
+h1 {
+    color: #fcee0a;
+    text-transform: uppercase;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(252, 238, 10, 0.3);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #fcee0a;
+    border-radius: 2px;
+    box-shadow: 0 0 20px rgba(252, 238, 10, 0.2);
+}
+
+input {
+    background-color: #1a1a1a;
+    border: 2px solid #fcee0a;
+    color: #fff;
+    padding: 12px 20px;
+    margin: 15px 0;
+    font-size: 1.1em;
+    width: 60%;
+    outline: none;
+}
+
+input:focus {
+    box-shadow: 0 0 15px rgba(252, 238, 10, 0.3);
+}
+
+.button {
+    background-color: #000;
+    color: #fcee0a;
+    padding: 12px 30px;
+    border: 2px solid #fcee0a;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background-color: #fcee0a;
+    color: #000;
+    box-shadow: 0 0 20px rgba(252, 238, 10, 0.5);
+}
+
+.quote, .song, .joke {
+    margin: 20px 0;
+    padding: 15px;
+    border-left: 3px solid #fcee0a;
+    background-color: rgba(252, 238, 10, 0.1);
+}
+
+#results {
+    margin-top: 30px;
+    text-align: left;
+}
+
+h2 {
+    color: #fcee0a;
+    text-transform: uppercase;
+    border-bottom: 2px solid #fcee0a;
+    padding-bottom: 10px;
+}
+
+h3 {
+    color: #fcee0a;
+    text-transform: uppercase;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(252, 238, 10, 0.2);
+}
+
+.error {
+    color: #ff0044;
+    border-left: 3px solid #ff0044;
+    padding: 10px;
+    background-color: rgba(255, 0, 68, 0.1);
+}

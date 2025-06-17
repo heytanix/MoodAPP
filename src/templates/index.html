@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Mood Based Suggestions</title>
+</head>
+<body>
+    <div class="container">
+        <h1>How are you feeling today?</h1>
+        <input type="text" id="moodInput" placeholder="Enter your mood...">
+        <button onclick="getSuggestions()" class="button">Get Suggestions</button>
+        
+        <div id="results"></div>
+    </div>
+
+    <script>
+        function getSuggestions() {
+            const mood = document.getElementById('moodInput').value;
+            if (!mood) {
+                alert('Please enter a mood');
+                return;
+            }
+
+            document.getElementById('results').innerHTML = 'Loading...';
+
+            fetch('/get_suggestions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ mood: mood })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    document.getElementById('results').innerHTML = `<p class="error">${data.error}</p>`;
+                    return;
+                }
+
+                const resultsHtml = `
+                    <h2>Suggestions for "${mood}" mood:</h2>
+                    <div class="song">
+                        <h3>🎵 Songs:</h3>
+                        <ul>
+                            ${data.songs.map(song => `<li>${song}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class="quote">
+                        <h3>💭 Quote:</h3>
+                        <p>${data.quote}</p>
+                    </div>
+                    <div class="joke">
+                        <h3>😊 Joke:</h3>
+                        <p>${data.joke}</p>
+                    </div>
+                `;
+                document.getElementById('results').innerHTML = resultsHtml;
+            })
+            .catch(error => {
+                document.getElementById('results').innerHTML = `<p class="error">Error: ${error.message}</p>`;
+            });
+        }
+    </script>
+</body>
+</html>
